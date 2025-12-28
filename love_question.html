@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me, Richa?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f2, #ffb3ba);
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin: 30px 0;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        .randomImage {
+            display: none;
+            max-width: 250px;
+            border-radius: 15px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .celebration {
+            display: none;
+            font-size: 1.8em;
+            color: #ff69b4;
+            animation: fadeIn 2s ease-in-out;
+            margin-top: 50px;
+        }
+        .celebration p {
+            font-size: 1.3em;
+            margin: 10px 0;
+        }
+        .celebration img {
+            max-width: 300px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .signature {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Do You Love Me, Richa? 💕</h1>
+    <p id="question">Do you love me? 😊</p>
+    <img id="randomImage" class="randomImage" src="" alt="A cute image to cheer you up">
+    <div class="buttons">
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+    </div>
+    <div class="celebration" id="celebration">
+        <p>Oh, Richa, my heart is bursting with joy! 💖🌹</p>
+        <p>You've made me the luckiest person ever. I love you endlessly, my forever love! ✨😘❤️</p>
+        <img src="cat kisssssssssssssss.gif" alt="A beautiful memory of us"> <!-- Replace 'your-pic.jpg' with your actual image file path -->
+        <p>Thank you for saying yes—you're my everything! 🎉💕</p>
+    </div>
+    <p class="signature">With all my love,<br>Abel</p>
+
+    <script>
+        let attempts = 0;
+        const messages = [
+            "Do you love me? 😊",
+            "Pretty please, say yes? 🥺💕",
+            "With all my heart, do you? 🤗❤️",
+            "I'll be your biggest fan forever! 🌟😘",
+            "You're my world—love me back? 🌍💖",
+            "One more time, my love? ✨😍"
+        ];
+        // Array of image paths in your 'images' folder (forgive_me)
+        const images = [
+            "images/amy-cat-cute-cat.gif",
+            "images/cute-cat.gif",
+            "images/cat-caty.gif",
+            "images/erm-fingers.gif",
+            "images/mochi-peach.gif",
+            "images/mutlu.gif",
+            "images/peachcat-cat.gif",
+            "images/puppy-dog-eyes-sad.gif",
+
+        ];
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            document.getElementById('question').style.display = 'none';
+            document.querySelector('.buttons').style.display = 'none';
+            document.getElementById('randomImage').style.display = 'none'; // Hide random image on yes
+            document.getElementById('celebration').style.display = 'block';
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            attempts++;
+            document.getElementById('question').innerText = messages[attempts % messages.length];
+            
+            // Show a random image
+            const randomIndex = Math.floor(Math.random() * images.length);
+            document.getElementById('randomImage').src = images[randomIndex];
+            document.getElementById('randomImage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
